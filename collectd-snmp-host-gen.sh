@@ -8,7 +8,7 @@ n=$(snmpget -OQ -Ov -c public -v 1 ${ip_addr[$i]} .1.3.6.1.2.1.1.5.0)
 Address "${ip_addr[$i]}"
 Version 1
 Community "public"
-Collect "ubnt_radio_entry" "ubnt_radio_rssi_entries" "ubnt_wlstat_entry" "ubnt_airmax_entry"
+Collect "ubnt_radio_entry" "ubnt_radio_rssi_entries" "ubnt_wlstat_entry" "ubnt_airmax_entry" "ubnt_mem_t" "ubnt_load"
 </Host>
 </Plugin>
 EOF
