@@ -1,0 +1,1 @@
+rrdtool graph test.png -v 'ccq %' -w 720 -s now-2h -S 10 DEF:c=/var/lib/collectd/rrd/ant.agip/snmp/ubnt_wlstat.rrd:ccq:AVERAGE CDEF:cw=c,UN,INF,UNKN,IF LINE1:c#ff000040:"CCQ" AREA:cw#ff0000:"Error marker"
