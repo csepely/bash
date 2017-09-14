@@ -1,0 +1,22 @@
+# identity-date-hhmm.[backup|rsc]
+function create_backup {
+  echo ":: creating backup @ $1"
+  local Date=$(date +%F-%H%M%S)
+  ssh admin@"$1" "/system backup save name=\"system-backup-$Date\";/export file=\"system-backup-$Date\";/delay 5;/quit"
+}
+
+function download_backup {
+  echo ":: downloading backup @ $1"
+  BACKUP_DIR="$HOME/backup/$1"
+  pushd .
+  mkdir -p "$BACKUP_DIR"
+  echo $BACKUP_DIR
+  cd "$BACKUP_DIR"
+  sftp -b - admin@"$1" <<EOF
+get system-backup-*.backup
+get system-backup-*.rsc
+rm system-backup-*.backup
+rm system-backup-*.rsc
+EOF
+popd
+}
