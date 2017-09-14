@@ -3,7 +3,7 @@
 
 # accounts
 mtik_usr='admin'
-mtik_pwd='!q@s#c$5'
+mtik_pwd='admin'
 
 function ftp_upload {
   # $1 => rtr/name
